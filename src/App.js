@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import '@/App.css';
+// Vidéo 17 en cours à 00 m 50
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import PublicRouter from '@/pages/Public/PublicRouter';
+import AdminRouter from '@/pages/Admin/AdminRouter';
+import AuthRouter from '@/pages/Auth/AuthRouter';
+import AuthGuard from '@/_helpers/AuthGuard';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/*" element={<PublicRouter />} />
+            <Route path="/admin/*" element={<AuthGuard><AdminRouter /></AuthGuard>} />
+            <Route path='/auth/*' element={<AuthRouter />} />
+          </Routes>
+        </BrowserRouter>
     </div>
   );
 }

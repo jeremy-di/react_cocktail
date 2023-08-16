@@ -1,0 +1,19 @@
+.Pheader {
+    text-align: center;
+    border: solid 1px grey;
+}
+
+.Pheader ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.Pheader ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.Pheader a {
+    text-decoration: none;
+    color: black;
+}
